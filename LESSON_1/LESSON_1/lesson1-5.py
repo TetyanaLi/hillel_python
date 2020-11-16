@@ -1,1 +1,1 @@
-import antigravity
+print(globals())
