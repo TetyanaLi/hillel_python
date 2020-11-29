@@ -19,20 +19,21 @@
 
 #*доп.предоставить пользователю выбор города и количества дней, а также добавить колонку Температура ночью
 
-
-import urllib.request
+import requests
 URL='http://api.openweathermap.org/data/2.5/forecast/daily'
 def return_weather(days=1):
-    data={'q':'Odesa','cnt':days, 'units':'metric','appid':'f9ada9efec6a3934dad5f30068fdcbb8'}
-#   r = requests.get(URL, data)
-    return r.json
-result=return_weather(days=6)
-#        for day in result['list']:
-#           print((day['temp']['day']))
-#print('done')
-import urllib.request
-req = urllib.request.urlopen("http://api.openweathermap.org/data/2.5/forecast/daily?q=Odessa&cnt=5&units=metric&appid=f9ada9efec6a3934dad5f30068fdcbb8")
-data = json.load(req)
-#print(req.read())
-#print("----")
-print("json",data)
+    data = {'q' : 'Odesa','cnt' : days, 'units':'metric','appid':'f9ada9efec6a3934dad5f30068fdcbb8'}
+    r = requests.get(URL, data)
+    return r.json()
+result = return_weather(days = 5)
+def write_file():
+    prin
+print('Tемпература днем\tТемпература ночью\tПо ощущениям днем\tПо ощущениям ночью')
+#print(result)
+for day in result['list']:
+   print('\t', day['temp']['day'],'\t' * 4, day['feels_like']['day'],
+         '\t' *5 , day['temp']['night'],'\t'*4, day['feels_like']['night'])
+print('done')
+
+import datetime
+print(datetime.datetime.today())
