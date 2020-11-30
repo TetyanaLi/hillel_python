@@ -26,8 +26,10 @@ def return_weather(days=1):
     r = requests.get(URL, data)
     return r.json()
 result = return_weather(days = 5)
-def write_file():
-    prin
+def write_file(result):
+    with open('dv.txt','w') as f:
+        f.writelines([day])
+
 print('Tемпература днем\tТемпература ночью\tПо ощущениям днем\tПо ощущениям ночью')
 #print(result)
 for day in result['list']:
