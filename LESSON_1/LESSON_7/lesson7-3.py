@@ -5,7 +5,7 @@
 #Параметр q = город
 #Так мы получим и обработаем дату из ответа(ключ dt):
 #datetime.datetime.fromtimestamp(1600419600)
-#Применив к полученному обьекту даты strftime("%d-%m-%Y") получим строковую дату для записи вфайл.
+#Применив к полученному обьекту даты strftime("%d-%m-%Y") получим строковую дату для записи в файл.
 
 #Пример имени файла:
 # 19 - 09 - 2020 - Odessa - 5 - days - weather - forecast.txt
@@ -19,23 +19,22 @@
 
 #*доп.предоставить пользователю выбор города и количества дней, а также добавить колонку Температура ночью
 
+import datetime
 import requests
-URL='http://api.openweathermap.org/data/2.5/forecast/daily'
+URL = 'http://api.openweathermap.org/data/2.5/forecast/daily'
+
 def return_weather(days=1):
-    data = {'q' : 'Odesa','cnt' : days, 'units':'metric','appid':'f9ada9efec6a3934dad5f30068fdcbb8'}
+    data = {'q': 'Odesa', 'cnt': days, 'units': 'metric','appid': 'f9ada9efec6a3934dad5f30068fdcbb8'}
     r = requests.get(URL, data)
     return r.json()
-result = return_weather(days = 5)
+result = return_weather(days=5)
+
+print('Дата\t\tTемпература днем\tПо ощущениям днем\tТемпература ночью\tПо ощущениям ночью')
+for day in result['list']:
+    data = day['dt']
+    print(datetime.datetime.fromtimestamp(data).strftime("%d-%m-%Y"), '\t'*2, day['temp']['day'],
+          '\t' * 4, day['feels_like']['day'], '\t'*5, day['temp']['night'], '\t'*4, day['feels_like']['night'])
+
 def write_file(result):
     with open('dv.txt','w') as f:
         f.writelines([day])
-
-print('Tемпература днем\tТемпература ночью\tПо ощущениям днем\tПо ощущениям ночью')
-#print(result)
-for day in result['list']:
-   print('\t', day['temp']['day'],'\t' * 4, day['feels_like']['day'],
-         '\t' *5 , day['temp']['night'],'\t'*4, day['feels_like']['night'])
-print('done')
-
-import datetime
-print(datetime.datetime.today())
