@@ -16,9 +16,9 @@ in_t = int(input('ТЕМПЕРАТУРА: '))
 in_t_type = input('ТИП (C,K или F): ')
 if in_t_type == 'C':
     cels(in_t)
-if in_t_type == 'K':
+elif in_t_type == 'K':
     kelv(in_t)
-if in_t_type == 'F':
+elif in_t_type == 'F':
     farren(in_t)
 else:
-    print('Ошибка ввода!!!') # При каждом вводе печатает ошибку ввода. Почему?
+    print('Ошибка ввода!!!')
