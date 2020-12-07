@@ -3,4 +3,4 @@
 # Функция принимает три аргумента - win, draw, loss.
 # Пример : count_points(3, 2, 2) -> 11
 
-
+win = int(input())
