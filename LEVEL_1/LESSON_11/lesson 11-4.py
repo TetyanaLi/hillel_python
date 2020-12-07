@@ -4,3 +4,6 @@
 #  1) -> 'Marvel makes good movies, DC makes good comics'
 #  fake_string('DC makes good movies, DC makes good comics', 'DC', 'Marvel',
 #  2) -> 'Marvel makes good movies, Marvel makes good comics'
+
+
+# ДОЛЖОК
