@@ -24,8 +24,10 @@ def longest_word(some_list):
     for i in elements:
         new_list.append(len(i))
         d = dict(zip(new_list, elements))
-    return (print(d.get(max(new_list))))
-#return longest_word(some_list)
+        max_len_word =d.get(max(new_list))
+    return max_len_word
+print(longest_word(some_list))
+
 
 
 
