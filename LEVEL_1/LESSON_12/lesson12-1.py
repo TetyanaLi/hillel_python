@@ -13,18 +13,18 @@
 
 class Bank_account():
     """Банковский счет."""
-    def __init__(self, str, uuid, float, list):
+    def __init__(self, name,id, balance, transaction):
         """Инициализирует атрибуты str, uuid, float, list."""
-        self.str = str
-        self.uuid = uuid
-        self.float = float
-        self.list = list
+        self.name = name
+        self.id = id
+        self.balance = balance
+        self.transactions = transaction
     def deposit_of_funds(self):
         """Депозит средств."""
-        print(f"{self.str} is now deposit_of_funds.")
+        print(f"{self.} is now deposit_of_funds.")
     def withdrawal_of_funds(self):
         """Вывод средств."""
-        print(f"{self.list} is now withdrawal_of_funds")
+        print(f"{self.transactions} is now withdrawal_of_funds")
     def get_balance(self):
         """Получить баланс."""
-        print(f"{self.float} is now balance")
+        print(f"{self.balance} is now balance")
