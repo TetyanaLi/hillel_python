@@ -28,12 +28,12 @@ class BankAccount:
     def deposit_of_funds(self, amount):
         """Депозит средств."""
         self.balance += amount - (amount * 0.01)
-        self.transactions.append((amount, 'deposit', datetime.now()))
+        self.transactions.append((amount, 'deposit', datetime.now().strftime('%d %m %Y')))
 
     def withdrawal_of_funds(self, amount):
         """Вывод средств."""
         self.balance -= amount + (amount * 0.01)
-        self.transactions.append((amount, 'withdrawal', datetime.now()))
+        self.transactions.append((amount, 'withdrawal', datetime.now().strftime('%d %m %Y')))
 
     def get_balance(self):
         """Получить баланс."""
