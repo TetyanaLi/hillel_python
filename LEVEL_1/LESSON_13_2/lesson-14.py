@@ -16,24 +16,17 @@
 
 import sys
 
-class Coffee:
-    def __init__(self, coffee):
-        self.name1 = []  # из файла
-        self.type_1 = coffee = 5
-        self.price = 0
+class Product:
 
+    def __init__(self, product_name, product_type, price):
+        self.product_name = product_name
+        self.product_type = self._check_product_type(product_type)  # тут функция которая вернет
+        self.price = float(price)                                   # чай или кофе или None если другое например
 
-class Tea:
-    def __init__(self, tea):
-        self.name1 = []  # из файла
-        self.type_2 = tea = 5
-        self.price = 0
+class Store:
 
-
-class Shop:
     def __init__(self):
         self.ware_house = []  # из файла
-        self.balance = 0.0
         self.transactions = []
 
     def sale(self):
