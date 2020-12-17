@@ -19,8 +19,8 @@ class Product:
 
     def __init__(self, product_name, product_type, price):
         self.product_name = product_name
-        self.product_type = self._check_product_type(product_type)  # тут функция которая вернет
-        self.price = float(price)                                   # чай или кофе или None если другое например
+        self.product_type = self._check_product_type(product_type)
+        self.price = float(price)
 
     def _check_product_type(self, product_type):
         if product_type == 'tea':
@@ -44,7 +44,6 @@ class Store:
         self.transactions = []
 
     def import_product(self):
-
         product_list = [Product('Латте', 'coffee', 34),
                         Product('Черный чай', 'tea', 20),
                         Product('Earl Grey', 'tea', 25),
