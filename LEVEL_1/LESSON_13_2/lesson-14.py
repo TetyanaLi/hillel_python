@@ -14,7 +14,6 @@
 #*доп. Научить Store запоминать выручку(сумма проданных продуктов) и выводить баланс.
 #Тип продукта может быть только coffee или tea (нельзя создать обьект с другим типом).
 
-import sys
 
 class Product:
 
@@ -23,17 +22,34 @@ class Product:
         self.product_type = self._check_product_type(product_type)  # тут функция которая вернет
         self.price = float(price)                                   # чай или кофе или None если другое например
 
+    def _check_product_type(self, product_type):
+        if product_type == 'tea':
+            return 'tea'
+        elif product_type == 'coffee':
+            return 'coffee'
+        else:
+            return None
+
+    def print_product(self):
+        if self.product_type is not None:
+            print(self.product_type+':'+self.product_name+', цена: '+str(self.price) + 'грн')
+        else:
+            print('Странный продукт:' + self.product_name + ', цена: ' + str(self.price) + 'грн')
+
+
 class Store:
 
     def __init__(self):
-        self.ware_house = []  # из файла
+        self.ware_house = self.import_product()  # CSV
         self.transactions = []
 
-    def sale(self):
-        pass
+    def import_product(self):
 
-    def __get__(self, instance, owner):
-        pass
+        product_list = [Product('Латте', 'coffee', 34),
+                        Product('Черный чай', 'tea', 20),
+                        Product('Earl Grey', 'tea', 25),
+                        Product('Хлеб', 'bakery', 10)]
+        return product_list
 
     def order(self):
         pass
@@ -41,7 +57,14 @@ class Store:
     def balance_day(self):
         pass
 
-a = Shop()
-print(a)
+
+
+product_list = [Product('Латте','coffee',34),
+                Product('Черный чай','tea',20),
+                Product('Earl Grey','tea',25),
+                Product('Хлеб','bakery',10)]
+
+for product in product_list:
+    product.print_product()
 
 
