@@ -3,3 +3,10 @@
 # По данному числу `y` определите номер дня, на который пробег спортсмена составит не менее `y` километров.
 #Программа получает на вход числа `x` и `y` и должна вывести одно число - номер дня.
 
+day_distance = int(input('Введите км: '))
+new_distance = int(input("Введите дистанцию: "))
+day_numb = 1
+while day_distance <= new_distance:
+    day_distance *= 1.1
+    day_numb += 1
+print(day_numb)

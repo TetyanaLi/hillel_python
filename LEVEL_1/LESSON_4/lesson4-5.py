@@ -10,7 +10,18 @@
 #   h. выведите все символы строки через один в обратном порядке, начиная с последнего.
 #   i. выведите длину данной строки.
 
-some_text = input('Введите текст: ')
+some_text = list(input('Введите текст: '))  # ВАРИАНТ 1 можно не использовать list, но тогда не видно пробелов
+print(some_text[2])
+print(some_text[-2])
+print(some_text[0:5])
+print(some_text[:-2])
+print(some_text[2::2])
+print(some_text[1::2])
+print(some_text[::-1])
+print(some_text[::-2])
+print(len(some_text))
+
+some_text = input('Введите текст: ')  # ВАРИАНТ 2
 print(some_text[2])
 print(some_text[-2])
 print(some_text[0:5])

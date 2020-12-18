@@ -9,6 +9,7 @@
 #- определить количество чётных и не чётных элементов в последовательности
 #- определить значение второго по величине элемента в этой последовательности
 #- определите, сколько элементов этой последовательности равны ее наибольшему элементу
+
 new_number = None
 all_number = []
 while new_number != 0:
@@ -17,6 +18,8 @@ while new_number != 0:
     if new_number == 0:
         break
     all_number.append(new_number)
+print(all_number)
+
 
 def make_calculation(all_number):
     digits_count = 0
@@ -27,6 +30,9 @@ def make_calculation(all_number):
     max_digit = 0
     last_element = 0
     max_elements = 0
+    max_digit_index = []
+    second_max_digit = None
+    second_max_index = None
     for i, value in enumerate(all_number):
         digits_count += 1
         digits_sum += value
@@ -48,7 +54,10 @@ def make_calculation(all_number):
     return (digits_count, digits_sum, digits_multiply, digits_avg, max_digit,
             max_digit_index, second_max_digit, second_max_index, digits_count_1,
             digits_count_2, max_elements)
-print(make_calculation (all_number))
+
+
+print(make_calculation(all_number))
+
 
 
 
